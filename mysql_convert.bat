@@ -23,12 +23,12 @@ echo -----TESTING PYTHON END----------
 
 rem 执行 DataX 脚本
 rem 转换data.db
-python bin\datax.py script_mysql\attrs.json
-python bin\datax.py script_mysql\ban_info.json
-python bin\datax.py script_mysql\endpoint_info.json
-python bin\datax.py script_mysql\group_info.json
-python bin\datax.py script_mysql\group_player_info.json
+python bin\datax.py script\mysql\attrs.json
+python bin\datax.py script\mysql\ban_info.json
+python bin\datax.py script\mysql\endpoint_info.json
+python bin\datax.py script\mysql\group_info.json
+python bin\datax.py script\mysql\group_player_info.json
 rem 转换data-logs.db
-python bin\datax.py script_mysql\log_items.json
-python bin\datax.py script_mysql\logs.json
+python bin\datax.py script\mysql\log_items.json
+python bin\datax.py script\mysql\logs.json
 pause
