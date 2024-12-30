@@ -1,0 +1,72 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 3
+            },
+            "errorLimit": {
+                "record": 999999999,
+                "percentage": 1
+            }
+        },
+        "content": [{
+                "reader": {
+                    "name": "rdbmsreader",
+                    "parameter": {
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "id",
+                            "name",
+                            "group_id",
+                            "extra",
+                            "created_at",
+                            "updated_at",
+                            "upload_url",
+                            "upload_time",
+                            "size"
+
+                        ],
+                        "where": "1 = 1",
+                        "connection": [{
+                                "table": [
+                                    "logs"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:sqlite:task\\data-logs.db"
+                                ]
+                            }
+                        ],
+                        "fetchSize": 1024
+                    }
+                },
+                "writer": {
+                    "name": "postgresqlwriter",
+                    "parameter": {
+                        "username": "postgres",
+                        "password": "pinenut666",
+                        "column": [
+                            "id",
+                            "name",
+                            "group_id",
+                            "extra",
+                            "created_at",
+                            "updated_at",
+                            "upload_url",
+                            "upload_time",
+                            "size"
+                        ],
+                        "preSql": [],
+                        "connection": [{
+                                "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",
+                                "table": [
+                                    "logs"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

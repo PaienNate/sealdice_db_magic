@@ -1,0 +1,65 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 3
+            },
+            "errorLimit": {
+                "record": 999999999,
+                "percentage": 1
+            }
+        },
+        "content": [{
+                "reader": {
+                    "name": "rdbmsreader",
+                    "parameter": {
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "id",
+                            "created_at",
+                            "updated_at",
+                            "data"
+                        ],
+                        "where": "1 = 1",
+                        "connection": [{
+                                "table": [
+                                    "group_info"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:sqlite:task\\data.db"
+                                ]
+                            }
+                        ],
+                        "fetchSize": 1024
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+						"writeMode": "insert",
+                        "username": "root",
+                        "password": "root",
+                        "column": [
+                            "id",
+                            "created_at",
+                            "updated_at",
+                            "data"
+                        ],
+                        "session": [
+                        	"set session sql_mode='ANSI'"
+                        ],
+                        "preSql": [],
+                        "connection": [{
+                                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/nokoti?useUnicode=true&characterEncoding=utf8&useSSL=false",
+                                "table": [
+                                    "group_info"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

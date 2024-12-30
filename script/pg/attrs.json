@@ -1,0 +1,74 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 3
+            },
+            "errorLimit": {
+                "record": 999999999,
+                "percentage": 1
+            }
+        },
+        "content": [{
+                "reader": {
+                    "name": "rdbmsreader",
+                    "parameter": {
+                        "username": "-",
+                        "password": "-",
+						"column": [
+                            "id",
+                            "data",
+                            "attrs_type",
+                            "binding_sheet_id",
+                            "name",
+                            "owner_id",
+                            "sheet_type",
+                            "is_hidden",
+                            "created_at",
+                            "updated_at"
+                        ],
+						"where": "1 = 1"
+                        "connection": [{
+							    "table": [
+                                    "attrs"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:sqlite:task\\data.db"
+                                ]
+                            }
+                        ],
+                        "fetchSize": 1024
+                    }
+                },
+                "writer": {
+                    "name": "postgresqlwriter",
+                    "parameter": {
+                        "username": "postgres",
+                        "password": "pinenut666",
+                        "column": [
+                            "id",
+                            "data",
+                            "attrs_type",
+                            "binding_sheet_id",
+                            "name",
+                            "owner_id",
+                            "sheet_type",
+                            "is_hidden",
+                            "created_at",
+                            "updated_at"
+                        ],
+                        "preSql": [
+                        ],
+                        "connection": [{
+                                "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",
+                                "table": [
+                                    "attrs"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
