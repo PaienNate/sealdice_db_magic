@@ -196,8 +196,15 @@ def buildStartCommand(options, args):
         jobResource = os.path.abspath(jobResource)
         if jobResource.lower().startswith("file://"):
             jobResource = jobResource[len("file://"):]
+        # 提取相对路径（文件夹 + 文件名）
+    parent_path = os.path.dirname(jobResource)  # 父路径
+    file_name = os.path.basename(jobResource)  # 文件名
+    relative_path = os.path.join(os.path.basename(parent_path), file_name)  # 拼接为相对路径
 
-    jobParams = ("-Dlog.file.name=%s") % (jobResource[-20:].replace('/', '_').replace('.', '_'))
+    # 替换非法字符
+    sanitized_path = relative_path.replace(os.sep, '_').replace('.', '_')
+    jobParams = ("-Dlog.file.name=%s") % (sanitized_path)
+    # jobParams = ("-Dlog.file.name=%s") % (jobResource[-20:].replace('/', '_').replace('.', '_'))
     if options.params:
         jobParams = jobParams + " " + options.params
 

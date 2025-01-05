@@ -1,0 +1,85 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 3
+            },
+            "errorLimit": {
+                "record": 999999999,
+                "percentage": 1
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "rdbmsreader",
+                    "parameter": {
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "id",
+                            "log_id",
+                            "group_id",
+                            "nickname",
+                            "im_userid",
+                            "time",
+                            "message",
+                            "is_dice",
+                            "command_id",
+                            "command_info",
+                            "raw_msg_id",
+                            "user_uniform_id",
+                            "removed",
+                            "parent_id"
+                        ],
+                        "where": "1 = 1",
+                        "connection": [
+                            {
+                                "table": [
+                                    "log_items"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:sqlite:task\\data-logs.db"
+                                ]
+                            }
+                        ],
+                        "fetchSize": 1024
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:sqlite:output\\data.db",
+                                "table": [
+                                    "log_items"
+                                ]
+                            }
+                        ],
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "id",
+                            "log_id",
+                            "group_id",
+                            "nickname",
+                            "im_userid",
+                            "time",
+                            "message",
+                            "is_dice",
+                            "command_id",
+                            "command_info",
+                            "raw_msg_id",
+                            "user_uniform_id",
+                            "removed",
+                            "parent_id"
+                        ],
+                        "preSql": [
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

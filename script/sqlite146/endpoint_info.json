@@ -1,0 +1,65 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 3
+            },
+            "errorLimit": {
+                "record": 999999999,
+                "percentage": 1
+            }
+        },
+        "content": [{
+                "reader": {
+                    "name": "rdbmsreader",
+                    "parameter": {
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "user_id",
+                            "cmd_num",
+                            "cmd_last_time",
+                            "online_time",
+                            "updated_at"
+                        ],
+                        "where": "1 = 1",
+                        "connection": [{
+                                "table": [
+                                    "endpoint_info"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:sqlite:task\\data.db"
+                                ]
+                            }
+                        ],
+                        "fetchSize": 1024
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:sqlite:output\\data.db",
+                                "table": [
+                                    "endpoint_info"
+                                ]
+                            }
+                        ],
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "user_id",
+                            "cmd_num",
+                            "cmd_last_time",
+                            "online_time",
+                            "updated_at"
+                        ],
+                        "preSql": [
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

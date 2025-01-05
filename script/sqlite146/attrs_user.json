@@ -1,0 +1,63 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 3
+            },
+            "errorLimit": {
+                "record": 999999999,
+                "percentage": 1
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "rdbmsreader",
+                    "parameter": {
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "id",
+                            "updated_at",
+                            "data"
+                        ],
+                        "where": "1 = 1",
+                        "connection": [
+                            {
+                                "table": [
+                                    "attrs_user"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:sqlite:task\\data.db"
+                                ]
+                            }
+                        ],
+                        "fetchSize": 1024
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:sqlite:output\\data.db",
+                                "table": [
+                                    "attrs_user"
+                                ]
+                            }
+                        ],
+                        "username": "-",
+                        "password": "-",
+                        "column": [
+                            "id",
+                            "updated_at",
+                            "data"
+                        ],
+                        "preSql": [
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
