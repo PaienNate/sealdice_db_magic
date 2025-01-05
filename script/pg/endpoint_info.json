@@ -9,7 +9,8 @@
                 "percentage": 1
             }
         },
-        "content": [{
+        "content": [
+            {
                 "reader": {
                     "name": "rdbmsreader",
                     "parameter": {
@@ -22,8 +23,9 @@
                             "online_time",
                             "updated_at"
                         ],
-                        "where": "1 = 1"
-                        "connection": [{
+                        "where": "1 = 1",
+                        "connection": [
+                            {
                                 "table": [
                                     "endpoint_info"
                                 ],
@@ -47,9 +49,9 @@
                             "online_time",
                             "updated_at"
                         ],
-                        "preSql": [
-                        ],
-                        "connection": [{
+                        "preSql": [],
+                        "connection": [
+                            {
                                 "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",
                                 "table": [
                                     "endpoint_info"

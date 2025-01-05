@@ -9,13 +9,14 @@
                 "percentage": 1
             }
         },
-        "content": [{
+        "content": [
+            {
                 "reader": {
                     "name": "rdbmsreader",
                     "parameter": {
                         "username": "-",
                         "password": "-",
-						"column": [
+                        "column": [
                             "id",
                             "data",
                             "attrs_type",
@@ -27,9 +28,10 @@
                             "created_at",
                             "updated_at"
                         ],
-						"where": "1 = 1"
-                        "connection": [{
-							    "table": [
+                        "where": "1 = 1",
+                        "connection": [
+                            {
+                                "table": [
                                     "attrs"
                                 ],
                                 "jdbcUrl": [
@@ -57,9 +59,9 @@
                             "created_at",
                             "updated_at"
                         ],
-                        "preSql": [
-                        ],
-                        "connection": [{
+                        "preSql": [],
+                        "connection": [
+                            {
                                 "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",
                                 "table": [
                                     "attrs"

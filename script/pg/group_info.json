@@ -9,7 +9,8 @@
                 "percentage": 1
             }
         },
-        "content": [{
+        "content": [
+            {
                 "reader": {
                     "name": "rdbmsreader",
                     "parameter": {
@@ -20,10 +21,10 @@
                             "created_at",
                             "updated_at",
                             "data"
-
                         ],
-                        "where": "1 = 1"
-                        "connection": [{
+                        "where": "1 = 1",
+                        "connection": [
+                            {
                                 "table": [
                                     "group_info"
                                 ],
@@ -46,9 +47,9 @@
                             "updated_at",
                             "data"
                         ],
-                        "preSql": [
-                        ],
-                        "connection": [{
+                        "preSql": [],
+                        "connection": [
+                            {
                                 "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",
                                 "table": [
                                     "group_info"
