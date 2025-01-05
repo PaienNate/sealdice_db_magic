@@ -67,7 +67,7 @@
                             "removed",
                             "parent_id"
                         ],
-                        "preSql": [],
+                        "postSql": ["SELECT setval('log_items_id_seq', (SELECT MAX(id) FROM @table) + 1)"],
                         "connection": [
                             {
                                 "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",

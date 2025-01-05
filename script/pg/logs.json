@@ -57,7 +57,7 @@
                             "upload_time",
                             "size"
                         ],
-                        "preSql": [],
+                        "postSql": ["SELECT setval('logs_id_seq', (SELECT MAX(id) FROM @table) + 1)"],
                         "connection": [
                             {
                                 "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",

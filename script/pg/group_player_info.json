@@ -56,7 +56,8 @@
                             "auto_set_name_template",
                             "dice_side_num"
                         ],
-                        "preSql": [
+                        "postSql": [
+                            "SELECT setval('group_player_info_id_seq', (SELECT MAX(id) FROM @table) + 1);"
                         ],
                         "connection": [{
                                 "jdbcUrl": "jdbc:postgresql://localhost:5432/nokoti",
