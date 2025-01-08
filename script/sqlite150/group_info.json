@@ -9,8 +9,7 @@
                 "percentage": 1
             }
         },
-        "content": [
-            {
+        "content": [{
                 "reader": {
                     "name": "rdbmsreader",
                     "parameter": {
@@ -18,23 +17,17 @@
                         "password": "-",
                         "column": [
                             "id",
-                            "name",
-                            "group_id",
-                            "extra",
                             "created_at",
                             "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "data"
                         ],
                         "where": "1 = 1",
-                        "connection": [
-                            {
+                        "connection": [{
                                 "table": [
-                                    "logs"
+                                    "group_info"
                                 ],
                                 "jdbcUrl": [
-                                    "jdbc:sqlite:task\\data-logs.db"
+                                    "jdbc:sqlite:task\\data.db"
                                 ]
                             }
                         ],
@@ -46,9 +39,9 @@
                     "parameter": {
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:sqlite:output\\data-logs.db",
+                                "jdbcUrl": "jdbc:sqlite:output\\data.db",
                                 "table": [
-                                    "logs"
+                                    "group_info"
                                 ]
                             }
                         ],
@@ -56,16 +49,12 @@
                         "password": "-",
                         "column": [
                             "id",
-                            "name",
-                            "group_id",
-                            "extra",
                             "created_at",
                             "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "data"
                         ],
-                        "preSql": []
+                        "preSql": [
+                        ]
                     }
                 }
             }

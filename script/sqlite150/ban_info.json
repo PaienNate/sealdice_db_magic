@@ -18,23 +18,18 @@
                         "password": "-",
                         "column": [
                             "id",
-                            "name",
-                            "group_id",
-                            "extra",
-                            "created_at",
+                            "ban_updated_at",
                             "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "data"
                         ],
                         "where": "1 = 1",
                         "connection": [
                             {
                                 "table": [
-                                    "logs"
+                                    "ban_info"
                                 ],
                                 "jdbcUrl": [
-                                    "jdbc:sqlite:task\\data-logs.db"
+                                    "jdbc:sqlite:task\\data.db"
                                 ]
                             }
                         ],
@@ -46,9 +41,9 @@
                     "parameter": {
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:sqlite:output\\data-logs.db",
+                                "jdbcUrl": "jdbc:sqlite:output\\data.db",
                                 "table": [
-                                    "logs"
+                                    "ban_info"
                                 ]
                             }
                         ],
@@ -56,14 +51,9 @@
                         "password": "-",
                         "column": [
                             "id",
-                            "name",
-                            "group_id",
-                            "extra",
-                            "created_at",
+                            "ban_updated_at",
                             "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "data"
                         ],
                         "preSql": []
                     }

@@ -9,8 +9,7 @@
                 "percentage": 1
             }
         },
-        "content": [
-            {
+        "content": [{
                 "reader": {
                     "name": "rdbmsreader",
                     "parameter": {
@@ -18,23 +17,22 @@
                         "password": "-",
                         "column": [
                             "id",
-                            "name",
                             "group_id",
-                            "extra",
+                            "user_id",
+                            "name",
                             "created_at",
                             "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "last_command_time",
+                            "auto_set_name_template",
+                            "dice_side_num"
                         ],
                         "where": "1 = 1",
-                        "connection": [
-                            {
+                        "connection": [{
                                 "table": [
-                                    "logs"
+                                    "group_player_info"
                                 ],
                                 "jdbcUrl": [
-                                    "jdbc:sqlite:task\\data-logs.db"
+                                    "jdbc:sqlite:task\\data.db"
                                 ]
                             }
                         ],
@@ -46,9 +44,9 @@
                     "parameter": {
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:sqlite:output\\data-logs.db",
+                                "jdbcUrl": "jdbc:sqlite:output\\data.db",
                                 "table": [
-                                    "logs"
+                                    "group_player_info"
                                 ]
                             }
                         ],
@@ -56,16 +54,17 @@
                         "password": "-",
                         "column": [
                             "id",
-                            "name",
                             "group_id",
-                            "extra",
+                            "user_id",
+                            "name",
                             "created_at",
                             "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "last_command_time",
+                            "auto_set_name_template",
+                            "dice_side_num"
                         ],
-                        "preSql": []
+                        "preSql": [
+                        ]
                     }
                 }
             }

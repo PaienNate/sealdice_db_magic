@@ -18,23 +18,24 @@
                         "password": "-",
                         "column": [
                             "id",
+                            "data",
+                            "attrs_type",
+                            "binding_sheet_id",
                             "name",
-                            "group_id",
-                            "extra",
+                            "owner_id",
+                            "sheet_type",
+                            "is_hidden",
                             "created_at",
-                            "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "updated_at"
                         ],
                         "where": "1 = 1",
                         "connection": [
                             {
                                 "table": [
-                                    "logs"
+                                    "attrs"
                                 ],
                                 "jdbcUrl": [
-                                    "jdbc:sqlite:task\\data-logs.db"
+                                    "jdbc:sqlite:task\\data.db"
                                 ]
                             }
                         ],
@@ -46,9 +47,9 @@
                     "parameter": {
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:sqlite:output\\data-logs.db",
+                                "jdbcUrl": "jdbc:sqlite:output\\data.db",
                                 "table": [
-                                    "logs"
+                                    "attrs"
                                 ]
                             }
                         ],
@@ -56,16 +57,18 @@
                         "password": "-",
                         "column": [
                             "id",
+                            "data",
+                            "attrs_type",
+                            "binding_sheet_id",
                             "name",
-                            "group_id",
-                            "extra",
+                            "owner_id",
+                            "sheet_type",
+                            "is_hidden",
                             "created_at",
-                            "updated_at",
-                            "upload_url",
-                            "upload_time",
-                            "size"
+                            "updated_at"
                         ],
-                        "preSql": []
+                        "preSql": [
+                        ]
                     }
                 }
             }
